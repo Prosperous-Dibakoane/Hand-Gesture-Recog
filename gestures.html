@@ -61,3 +61,7 @@
     function fingerExtended(landmarks, fingerIndices) {
       return landmarks[fingerIndices[0]].y < landmarks[fingerIndices[2]].y;
     }
+
+    function thumbExtended(landmarks) {
+      return landmarks[4].x < landmarks[3].x;
+    }
