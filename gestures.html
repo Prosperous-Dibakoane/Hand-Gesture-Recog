@@ -46,7 +46,7 @@
     const gestureEl = document.getElementById('gesture');
     const wristPositions = [];
     const maxHistory = 15;
-    
+
     function angle(A, B, C) {
       const AB = [A.x - B.x, A.y - B.y];
       const CB = [C.x - B.x, C.y - B.y];
@@ -56,4 +56,8 @@
       const cosine = dot / (magAB * magCB);
       let a = Math.acos(Math.min(Math.max(cosine, -1), 1)); // clamp
       return a * 180 / Math.PI;
+    }
+
+    function fingerExtended(landmarks, fingerIndices) {
+      return landmarks[fingerIndices[0]].y < landmarks[fingerIndices[2]].y;
     }
