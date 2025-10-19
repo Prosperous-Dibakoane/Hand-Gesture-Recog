@@ -111,3 +111,12 @@
       }
       return count >= 2;
     }
+
+    function onResults(results) {
+      if (results.multiHandLandmarks && results.multiHandLandmarks.length > 0) {
+        const landmarks = results.multiHandLandmarks[0];
+
+        // Track wrist x for wave detection
+        const wristX = landmarks[0].x;
+        wristPositions.push(wristX);
+        if (wristPositions.length > maxHistory) wristPositions.shift();
