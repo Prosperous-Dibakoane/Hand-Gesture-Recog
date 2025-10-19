@@ -99,3 +99,15 @@
       }
       return true;
     }
+
+    function detectWave() {
+      if (wristPositions.length < maxHistory) return false;
+      let count = 0;
+      for (let i = 1; i < wristPositions.length; i++) {
+        if ((wristPositions[i-1] < wristPositions[i] && wristPositions[i] > wristPositions[i+1]) ||
+            (wristPositions[i-1] > wristPositions[i] && wristPositions[i] < wristPositions[i+1])) {
+          count++;
+        }
+      }
+      return count >= 2;
+    }
