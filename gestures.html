@@ -90,3 +90,12 @@
       if (fingerExtended(landmarks, [20,19,18,17])) return false;
       return true;
     }
+
+    function isThumbsUp(landmarks) {
+      if (!thumbExtended(landmarks)) return false;
+      if (landmarks[4].y > landmarks[0].y) return false;
+      for (const finger of [[8,6],[12,10],[16,14],[20,18]]) {
+        if (fingerExtended(landmarks, [finger[0], finger[0]-1, finger[1], finger[1]-1])) return false;
+      }
+      return true;
+    }
