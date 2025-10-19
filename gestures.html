@@ -46,3 +46,14 @@
     const gestureEl = document.getElementById('gesture');
     const wristPositions = [];
     const maxHistory = 15;
+    
+    function angle(A, B, C) {
+      const AB = [A.x - B.x, A.y - B.y];
+      const CB = [C.x - B.x, C.y - B.y];
+      const dot = AB[0]*CB[0] + AB[1]*CB[1];
+      const magAB = Math.sqrt(AB[0]*AB[0] + AB[1]*AB[1]);
+      const magCB = Math.sqrt(CB[0]*CB[0] + CB[1]*CB[1]);
+      const cosine = dot / (magAB * magCB);
+      let a = Math.acos(Math.min(Math.max(cosine, -1), 1)); // clamp
+      return a * 180 / Math.PI;
+    }
