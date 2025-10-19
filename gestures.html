@@ -128,3 +128,10 @@
         else if (isOpenPalm(landmarks)) gestureName = '🖐️ Open Palm';
         else if (isPeace(landmarks)) gestureName = '✌️ Peace';
         else if (isThumbsUp(landmarks)) gestureName = '👍 Thumbs Up';
+
+        gestureEl.textContent = gestureName;
+      } else {
+        gestureEl.textContent = 'No hand detected';
+        wristPositions.length = 0;
+      }
+    }
