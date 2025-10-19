@@ -65,3 +65,11 @@
     function thumbExtended(landmarks) {
       return landmarks[4].x < landmarks[3].x;
     }
+
+    function isFist(landmarks) {
+
+      for (const finger of [[8,6],[12,10],[16,14],[20,18]]) {
+        if (landmarks[finger[0]].y < landmarks[finger[1]].y) return false;
+      }
+      return true;
+    }
