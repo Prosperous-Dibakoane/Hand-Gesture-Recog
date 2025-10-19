@@ -120,3 +120,11 @@
         const wristX = landmarks[0].x;
         wristPositions.push(wristX);
         if (wristPositions.length > maxHistory) wristPositions.shift();
+
+        let gestureName = 'Unknown';
+
+        if (detectWave()) gestureName = '👋 Hello (Wave)';
+        else if (isFist(landmarks)) gestureName = '✊ Fist';
+        else if (isOpenPalm(landmarks)) gestureName = '🖐️ Open Palm';
+        else if (isPeace(landmarks)) gestureName = '✌️ Peace';
+        else if (isThumbsUp(landmarks)) gestureName = '👍 Thumbs Up';
