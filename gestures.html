@@ -82,3 +82,11 @@
       }
       return thumbExtended(landmarks);
     }
+
+    function isPeace(landmarks) {
+      if (!fingerExtended(landmarks, [8,7,6,5])) return false;
+      if (!fingerExtended(landmarks, [12,11,10,9])) return false;
+      if (fingerExtended(landmarks, [16,15,14,13])) return false;
+      if (fingerExtended(landmarks, [20,19,18,17])) return false;
+      return true;
+    }
